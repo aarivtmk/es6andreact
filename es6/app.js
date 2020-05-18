@@ -195,7 +195,6 @@ class and subclasses
 
 // (function () {
 //     var a = 5;
-
 // })();
 
 // console.log(a);
@@ -203,11 +202,22 @@ class and subclasses
 
 // es6 - block scoped
 
+// in es5 - function scope
+// in es6 - block scope
+
 // {
-//     let a = 5;
-//     const b = 20;
-//     var d = 55;
+
 // }
+
+{
+    var a = 50;
+    let b = 100;
+    const c = 'steve';
+}
+// console.log(a);
+
+// console.log(d);
+
 
 // console.log(a);
 // console.log(b);
@@ -220,14 +230,14 @@ class and subclasses
 // es6 - t
 
 // introduce yourself
-var firstName = 'Sandeep';
-let lastName = 'Kumar';
-const yearofBirth = 1990;
-function age(yearofBirth) {
-    return 2020 - yearofBirth;
-}
+// var firstName = 'Sandeep';
+// let lastName = 'Kumar';
+// const yearofBirth = 1990;
+// function age(yearofBirth) {
+//     return 2020 - yearofBirth;
+// }
 
-console.log('hi this is ' + firstName + ' ' + lastName + '. I born in ' + yearofBirth + '. and my age is ' + age(yearofBirth));
+// console.log('hi this is ' + firstName + ' ' + lastName + '. I born in ' + yearofBirth + '. and my age is ' + age(yearofBirth));
 
 
 // using template literals - ``  - backticks
@@ -236,31 +246,227 @@ console.log('hi this is ' + firstName + ' ' + lastName + '. I born in ' + yearof
 
 
 
-let name = 'sandeep';
-const marks = 90;
+// let name = 'sandeep';
+// const marks = 90;
 
-console.log(name + ' got ' + marks + ' marks.');
+// console.log(name + ' got ' + marks + ' marks.');
 
-console.log(`${name} got ${marks} marks`);
+// console.log(`${name} got ${marks} marks`);
 
 
 // some string methods
 
 // const fullname = firstName + ' ' + lastName;
-const fullname = `${firstName} ${lastName}`;
-console.log(fullname);
+// const fullname = `${firstName} ${lastName}`;
+// console.log(fullname);
 
-console.log(fullname.startsWith('Su'));
-console.log(fullname.endsWith('rf'));
-console.log(fullname.includes(' '));
+// console.log(fullname.startsWith('Su'));
+// console.log(fullname.endsWith('rf'));
+// console.log(fullname.includes(' '));
 
-passowrd = prompt('enter your password');
-console.log(passowrd);
+// passowrd = prompt('enter your password');
+// console.log(passowrd);
 
-if (passowrd.includes(' ')) {
-    console.log('do not give spaces in the password');
+// if (passowrd.includes(' ')) {
+//     console.log('do not give spaces in the password');
 
+// }
+
+
+
+// Arrow functions
+
+// map method 
+// es5
+
+// write a program to find ages of 4 people
+// present year - dob
+
+var years = [1990, 1965, 1982, 1937];
+
+// map - we use map to loop the array to do some thing
+// map(function(element,index,years))
+
+// find ages using map
+
+// var ages5 = years.map(function (el) {
+//     var now = new Date().getFullYear();
+
+//     return now - el;
+// });
+
+// console.log(ages5);
+// //  two parameters
+
+// var ages5 = years.map(function (el, index) {
+//     var now = new Date().getFullYear();
+//     console.log(`${el} index no is ${index}`);
+
+//     return now - el;
+// });
+
+// console.log(ages5);
+
+
+// es6
+
+// one parameter
+// arrow function - =>
+
+
+// a = 0;
+// if (a == 0)
+//     console.log('a is 0');
+
+
+// const ages6 = years.map((el) => {
+//     return 2020 - el;
+// });
+// console.log(ages6);
+
+// const ages6 = years.map(el => 2020 - el);
+// console.log(ages6);
+
+
+// two parameters in es6
+
+// const ages6 = years.map((el, index) => {
+//     let now = new Date().getFullYear();
+//     console.log(`el is ${el} and index is ${index}`);
+//     return now - el;
+// });
+
+// console.log(ages6);
+
+// this keyword
+
+// p1 = {
+//     name: 'Sandeep',
+//     marks: 25,
+// };
+// p2 = {
+//     name: 'Darpan',
+//     marks: 25,
+
+// };
+// p3 = {
+//     name: 'Mohammed',
+//     marks: 25,
+
+// };
+// p4 = {
+//     name: 'Prashanh',
+//     marks: 25,
+
+// };
+// p5 = {
+//     name: 'Manish',
+//     marks: 25,
+
+// };
+
+
+// var Person = function (name, accno, age) {
+//     this.name = name;
+//     this.age = age;
+//     this.accno = accno;
+// }
+
+// p1 = new Person('Sandeep', 12, 23);
+// p2 = new Person('Manish', 124, 23);
+
+
+// console.log(p1.name);
+// console.log(p2.accno);
+
+
+// this in arrow function:
+// they can share surrounding this keyword
+
+
+// es5
+
+// function show() { // show is a regular function or callback function
+//     alert('this is box number ' + this.position + 'and this is ' + this.color);
+// }
+
+// properties - nouns - color and position
+// methods - action or verb - clickMe
+
+// so object is nothing but combination of properties and methods
+
+// var box5 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {   // it is just a method
+//         console.log('hi this is color', this.color);
+
+//         document.querySelector('.green').addEventListener('click', function () {
+//             alert('this is box number ' + this.position + 'and this is ' + this.color);
+
+//         });
+//     }
+// }
+
+// console.log(box5.clickMe());
+
+
+// using arrow functions, we can access' this' of surrounding function
+
+// let box5 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {
+//         document.querySelector('.green').addEventListener('click', () => {
+//             alert('this is box number ' + this.position + 'and this is ' + this.color);
+//         })
+//     }
+// }
+
+// box5.clickMe();
+
+
+// es5 - how do you access this of surrounding fucntions
+
+// var box5 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {   // it is just a method
+//         console.log('hi this is color', this.color);
+//         console.log('this value is ', this);
+
+//         var presentValue = this;
+
+//         document.querySelector('.green').addEventListener('click', function () {
+//             alert('this is box number ' + presentValue.position + 'and this is ' + presentValue.color);
+
+//         });
+//     }
+// }
+
+// console.log(box5.clickMe());
+
+
+// es6
+
+
+let box6 = {
+    color: 'green',
+    position: 1,
+    clickMe: () => {
+        document.querySelector('.green').addEventListener('click', () => {
+            alert('this is box number ' + this.position + 'and this is ' + this.color);
+        });
+    }
 }
+
+box6.clickMe();
+
+
+
+
+
+
 
 
 
