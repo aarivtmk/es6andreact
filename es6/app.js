@@ -210,9 +210,9 @@ class and subclasses
 // }
 
 {
-    var a = 50;
-    let b = 100;
-    const c = 'steve';
+    // var a = 50;
+    // let b = 100;
+    // const c = 'steve';
 }
 // console.log(a);
 
@@ -382,91 +382,4 @@ var years = [1990, 1965, 1982, 1937];
 
 // this in arrow function:
 // they can share surrounding this keyword
-
-
-// es5
-
-// function show() { // show is a regular function or callback function
-//     alert('this is box number ' + this.position + 'and this is ' + this.color);
-// }
-
-// properties - nouns - color and position
-// methods - action or verb - clickMe
-
-// so object is nothing but combination of properties and methods
-
-// var box5 = {
-//     color: 'green',
-//     position: 1,
-//     clickMe: function () {   // it is just a method
-//         console.log('hi this is color', this.color);
-
-//         document.querySelector('.green').addEventListener('click', function () {
-//             alert('this is box number ' + this.position + 'and this is ' + this.color);
-
-//         });
-//     }
-// }
-
-// console.log(box5.clickMe());
-
-
-// using arrow functions, we can access' this' of surrounding function
-
-// let box5 = {
-//     color: 'green',
-//     position: 1,
-//     clickMe: function () {
-//         document.querySelector('.green').addEventListener('click', () => {
-//             alert('this is box number ' + this.position + 'and this is ' + this.color);
-//         })
-//     }
-// }
-
-// box5.clickMe();
-
-
-// es5 - how do you access this of surrounding fucntions
-
-// var box5 = {
-//     color: 'green',
-//     position: 1,
-//     clickMe: function () {   // it is just a method
-//         console.log('hi this is color', this.color);
-//         console.log('this value is ', this);
-
-//         var presentValue = this;
-
-//         document.querySelector('.green').addEventListener('click', function () {
-//             alert('this is box number ' + presentValue.position + 'and this is ' + presentValue.color);
-
-//         });
-//     }
-// }
-
-// console.log(box5.clickMe());
-
-
-// es6
-
-
-let box6 = {
-    color: 'green',
-    position: 1,
-    clickMe: () => {
-        document.querySelector('.green').addEventListener('click', () => {
-            alert('this is box number ' + this.position + 'and this is ' + this.color);
-        });
-    }
-}
-
-box6.clickMe();
-
-
-
-
-
-
-
-
 
