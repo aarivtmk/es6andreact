@@ -210,6 +210,43 @@
 
 
 
+// var box6 = {
+
+
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {
+//         // console.log('outside anonymous function', this.color);
+
+//         document.querySelector('.green').addEventListener('click', () => {
+//             console.log(this);
+
+
+//             console.log('this is a ' + this.color + ' box and the position is ' + this.position);
+//         });
+//     },
+//     obj: {
+//         name6: 'mohammed',
+//         age6: 24,
+//         hello: function () {
+//             document.querySelector('.green').addEventListener('click', () => {
+
+//                 console.log(`hi this is ${this.name6} and I am ${this.age6}`);
+//             });
+
+//         },
+
+
+//     }
+// }
+// box6.clickMe();
+
+// box6.obj.hello();
+
+
+// two objects seperately
+
+
 var box6 = {
 
 
@@ -225,22 +262,24 @@ var box6 = {
             console.log('this is a ' + this.color + ' box and the position is ' + this.position);
         });
     },
-    obj: {
-        name6: 'mohammed',
-        age6: 24,
-        hello: function () {
-            document.querySelector('.green').addEventListener('click', () => {
 
-                console.log(`hi this is ${this.name6} and I am ${this.age6}`);
-            });
+}
 
-        },
+var obj = {
+    name6: 'mohammed',
+    age6: 24,
+    hello: () => {
+        document.querySelector('.green').addEventListener('click', () => {
+
+            console.log(`hi this is ${this.name6} and I am ${this.age6}`);
+        });
+
+    },
 
 
-    }
 }
 box6.clickMe();
 
-box6.obj.hello();
+obj.hello();
 
 

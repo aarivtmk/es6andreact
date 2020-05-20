@@ -15,9 +15,13 @@ class and subclasses
 // variable declarations with let and const
 
 // es5
+
 // var name5 = 'Manish Kumar';
 // age5 = 24;
 // var PI = 3.14;
+// var PI = 5.14;
+// console.log(PI);
+
 
 // name5 = 'Manish Kumar bisoy';
 // PI = 3.1456445555
@@ -32,7 +36,7 @@ class and subclasses
 
 // const name6 = 'Manish Kumar';
 // let age6 = 26;
-// name6 = "Manish Kumar Bisoy";
+// // name6 = "Manish Kumar Bisoy";
 // age6 = 28;
 // console.log(age6);
 // console.log(name6);
@@ -42,28 +46,29 @@ class and subclasses
 // var - function scoped
 // let - block scoped
 
-// function driverLicense5(yesorno) {
-//     if (yesorno) {
-//         var firstName = 'Mohammed';
-//         var dob = 1990;
-//         console.log(firstName + ' born in the year ' + dob + 'and his age is ' + (2020 - dob) + 'so he can drive the vehicle');
+function driverLicense5(yesorno) {
+    if (yesorno) {
+        var firstName = 'Mohammed';
+        var dob = 1990;
+        console.log(firstName + ' born in the year ' + dob + 'and his age is ' + (2020 - dob) + 'so he can drive the vehicle');
 
-//     }
-//     else {
-//         console.log('hey kid,wait for some more time');
+    }
+    else {
+        console.log('hey kid,wait for some more time');
 
-//     }
+    }
 
-//     console.log(firstName);
+    console.log(firstName);
 
 
-// }
+}
 
-// driverLicense5(true);
+driverLicense5(true);
 
 
 // es6 
 // let and const - block scope
+
 
 // function driverLicense6(yesorno) {
 //     if (true) {
