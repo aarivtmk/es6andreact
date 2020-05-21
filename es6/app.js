@@ -292,15 +292,30 @@ var years = [1990, 1965, 1982, 1937];
 // map - we use map to loop the array to do some thing
 // map(function(element,index,years))
 
+// syntax : Map(function(array value, array index, array))
+
 // find ages using map
 
-// var ages5 = years.map(function (el) {
-//     var now = new Date().getFullYear();
+var ages5 = years.map(function (el) {
+    var presentYear = 2020;
 
-//     return now - el;
-// });
+    return presentYear - el;
+});
 
-// console.log(ages5);
+console.log(ages5);
+
+
+// var result = []
+// for (var i = 0; i < years.length; i++) {
+//     var present_year = 2020;
+//     result.push(present_year - years[i])
+//     // console.log(present_year - years[i]);
+
+// }
+// console.log(result);
+
+
+
 // //  two parameters
 
 // var ages5 = years.map(function (el, index) {
@@ -388,3 +403,6 @@ var years = [1990, 1965, 1982, 1937];
 // this in arrow function:
 // they can share surrounding this keyword
 
+
+
+// 

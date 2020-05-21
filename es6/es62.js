@@ -119,3 +119,175 @@ console.log(validAgeIndia);
 
 // var validAgeJapan = arrayCalculate(ages, isValidAge.bind(this, 24));
 // console.log(validAgeJapan);
+
+
+// using function constructors
+// friends list of person
+// es5
+
+// var friends = ['Mohammed', 'Manish', 'Sandeep', 'Prashanth']
+// function Person(name) {
+//     this.name = name;
+// }
+
+// Person.prototype.myfriend5 = function (friends) {
+//     var arrayFriends = friends.map((element) => {
+//         return `${this.name} is a friend of  ${element};`
+
+//     });
+
+
+//     console.log(arrayFriends);
+
+// }
+
+// p1 = new Person('Darpan');
+// console.log(p1.myfriend5(friends));
+
+
+// destructuring - seperating an object or array into variables
+
+// es5
+
+var person1 = ['Prashanth', 22];
+var name5 = person1[0];
+var age5 = person1[1];
+console.log(`name is ${name5} and age is ${age5}`);
+
+
+// var [name, year] = ['Prashanth', 22];
+// console.log(`name is ${name} and age is ${year}`);
+
+// var [name, year] = ['Sandeep', 22];
+// console.log(`name is ${name} and age is ${year}`);
+
+
+
+// es6
+
+let [name, year] = ['Prashanth', 22];
+// console.log(`name is ${name} and age is ${year}`);
+
+// let [name, year] = ['Prashanth', 22];
+// console.log(`name is ${name} and age is ${year}`);
+
+
+const obj = {
+    firstName: 'Darpan',
+    lastName: 'Singh'
+};
+
+
+// console.log('last name is ', obj.lastName);
+
+const { firstName, lastName } = obj;
+console.log(lastName);
+
+const { firstName: first, lastName: last } = obj;
+console.log(first + last);
+
+
+function calculateAgeRetirement(dob) {
+    const age = 2020 - dob;
+    return [age, 65 - age];
+}
+
+const [age, retirementTime] = calculateAgeRetirement(2000);
+console.log(age);
+console.log(retirementTime);
+
+
+// array - list of elements
+
+const boxes = document.querySelectorAll('.box');
+
+var boxArray = Array.prototype.slice.call(boxes)
+console.log(boxes);
+console.log(boxArray);
+
+
+// boxArray.forEach(function (cur) {
+//     cur.style.backgroundColor = 'yellow';
+// });
+
+// for loop
+
+// for (var i = 0; i < boxArray.length; i++) {
+//     boxArray[i].style.backgroundColor = 'yellow';
+// }
+
+// complete es6
+
+// boxArray.forEach((cur) => {
+//     cur.style.backgroundColor = 'yellow';
+// });
+
+
+// for (var i = 0; i < boxArray.length; i++) {
+//     if (boxArray[i].className === 'box blue') {
+//         continue;
+//     }
+//     boxArray[i].style.backgroundColor = 'yellow';
+// }
+
+
+// for (var i = 0; i < boxArray.length; i++) {
+//     if (boxArray[i].className === 'box blue') {
+//         break;
+//     }
+//     boxArray[i].style.backgroundColor = 'yellow';
+// }
+
+// for of
+
+// es6
+
+// for (const curbox of boxArray) {
+//     if (curbox.className === 'box blue') {
+//         continue;
+//     }
+//     curbox.style.backgroundColor = 'yellow';
+// }
+
+
+for (const curbox of boxArray) {
+    if (curbox.className === 'box blue') {
+        break;
+    }
+    curbox.style.backgroundColor = 'yellow';
+}
+
+
+// indexOf alternatives in es6
+
+// a = [1, 2, 4, 5, 6];
+// console.log(a.indexOf(6));
+
+// // two new methods 
+
+// var ages = [17, 21, 8, 14, 22, 11];
+// var full = ages.map(function (curage) {
+//     return curage > 18;
+// });
+
+// // es5
+// console.log(ages);
+// console.log(full);
+
+// console.log(full.indexOf(true));
+// console.log(ages[full.indexOf(true)]);
+
+// es6
+var ages = [17, 21, 8, 14, 22, 11];
+
+// findIndex
+console.log(ages.findIndex((curAge) => {
+    return curAge >= 18;
+}));
+
+// console.log(ages.find(curage => curage >= 18));
+
+
+
+
+
