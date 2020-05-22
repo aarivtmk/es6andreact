@@ -27,7 +27,7 @@ var bill = {
 
 // using call method - adopt the steve speech
 
-// steve.speech.call(bill, 'kids', 'Morning');
+steve.speech.call(bill, 'kids', 'Morning');
 
 
 // bind method:
@@ -155,8 +155,8 @@ var age5 = person1[1];
 console.log(`name is ${name5} and age is ${age5}`);
 
 
-// var [name, year] = ['Prashanth', 22];
-// console.log(`name is ${name} and age is ${year}`);
+var [name, year] = ['Prashanth', 22];
+console.log(`name is ${name} and age is ${year}`);
 
 // var [name, year] = ['Sandeep', 22];
 // console.log(`name is ${name} and age is ${year}`);
@@ -166,7 +166,7 @@ console.log(`name is ${name5} and age is ${age5}`);
 // es6
 
 let [name, year] = ['Prashanth', 22];
-// console.log(`name is ${name} and age is ${year}`);
+console.log(`name is ${name} and age is ${year}`);
 
 // let [name, year] = ['Prashanth', 22];
 // console.log(`name is ${name} and age is ${year}`);
@@ -176,6 +176,7 @@ const obj = {
     firstName: 'Darpan',
     lastName: 'Singh'
 };
+
 
 
 // console.log('last name is ', obj.lastName);
