@@ -2,7 +2,9 @@
 
 // console.log(this === window);
 
-
+// first class functions
+// 1. assigning a function to a variable
+// 2. passing a function as a parameter to another function
 // const add = function () {
 //     console.log('this inside function', this); //window object
 // }
@@ -10,7 +12,7 @@
 // add(); // - window object
 
 
-// this indise objects
+// this inside objects
 // this always refers to window object when you write outside function
 // no = 1000;
 // console.log(window.no === no);
@@ -30,7 +32,6 @@
 
 // // this always to refers to the current object when you write inside function
 
-// window.no;
 
 // college = 'lincolnstep'
 
@@ -42,68 +43,87 @@
 //         console.log('name is ' + this.name + ' and no is' + this.no + ' and college is', college);
 //     },
 
-//     rollno: this
+//     rollno: this.no
 
 // }
 
 // student.addi();
-// console.log(student.rollno);
+// console.log('student rollno',student.rollno);
 
 
 // // outside function added to object explicitly
 
-function sub() {
-    console.log('sub function', this);
-    console.log(this === window); // true
-}
-sub();
+// function sub() {
+//     console.log('sub function', this);
+//     console.log(this === window); // true
+// }
+// // sub();
 
-let obj = {
-    subf: sub,
-    objf: function () {
-        console.log(this === window); //false
-    }
-}
+// let obj = {
+//     subf: sub,
+//     objf: function () {
+//         console.log('inside objf function',this === window); //false
+//     }
+// }
 
-obj.objf();
-obj.subf();
+// obj.objf();
+// obj.subf();
 
+
+// -------------------------------------------------------
+// copying function
+
+// var myfun = add;
+// console.log('add function is', add);
+
+// myfun(8, 8);
+
+
+// // copying function in objects
+
+// var myobj = {
+//     myfun: add,
+// }
+
+// myobj.myfun(5, 5);
+
+// -------------------------------------------------------
 
 
 
 // call method
 
 
-var steve = {
-    name: 'steve jobs',
-    age: 26,
-    job: 'teacher',
-    speech: function (typeOfaudience, time) {
-        if (typeOfaudience === 'kids') {
-            console.log(`Hi Kids,Good ${time}, I am ${this.name} and I am ${this.age} and a ${this.job}`);
+// var steve = {
+//     name: 'steve jobs',
+//     age: 26,
+//     job: 'teacher',
+//     speech: function (typeOfaudience, time) {
+//         if (typeOfaudience === 'kids') {
+//             console.log(`Hi Kids,Good ${time}, I am ${this.name} and I am ${this.age} and a ${this.job}`);
 
-        }
+//         }
 
-        else if (typeOfaudience === 'college') {
-            console.log(`Good ${time} Gentlemen, I am ${this.name} and I am ${this.age} and a ${this.job}`);
+//         else if (typeOfaudience === 'college') {
+//             console.log(`Good ${time} Gentlemen, I am ${this.name} and I am ${this.age} and a ${this.job}`);
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
-var bill = {
-    name: 'bill gates',
-    age: 30,
-    job: 'designer',
-};
+// var bill = {
+//     name: 'bill gates',
+//     age: 30,
+//     job: 'designer',
+// };
 
 // steve.speech('college', 'evening');
 
 // using call method - adopt the steve speech 
 // global object
-var name = 'mohammed';
-window.age = 56;
-this.job = 'software engineer';
+// var name = 'mohammed';
+// window.age = 56;
+// this.job = 'software engineer';
 // steve.speech.call(this, 'kids', 'Morning');
 // console.log(this);
 
@@ -127,23 +147,23 @@ this.job = 'software engineer';
 
 
 // another example
-var obj1 = {
-    name: 'mohammed',
-    dob: 1998,
-    age: function () {
-        console.log(2020 - this.dob);
+// var obj1 = {
+//     name: 'mohammed',
+//     dob: 1998,
+//     age: function () {
+//         console.log(2020 - this.dob);
 
-    }
+//     }
 
-}
+// }
 
-var obj2 = {
-    name: 'darpan',
-    dob: 1995,
-}
+// var obj2 = {
+//     name: 'darpan',
+//     dob: 1995,
+// }
 
-var newfun = obj1.age.bind(obj2);
-newfun();
+// var newfun = obj1.age.bind(obj2);
+// newfun();
 
 
 
@@ -154,13 +174,13 @@ newfun();
 // two types of functions
 // 1. without return
 
-function add(a, b) {
-    console.log(a + b);
+// function add(a, b) {
+//     console.log(a + b);
 
-}
+// }
 
-var adresult = add(5, 6);
-console.log('value of addition is', adresult);
+// var adresult = add(5, 6);
+// console.log('value of addition is', adresult);
 
 
 
@@ -184,33 +204,33 @@ console.log('value of addition is', adresult);
 
 // 2.with return type
 
-function sub(a, b) {
-    return a + b;
-}
+// function sub(a, b) {
+//     return a + b;
+// }
 
-// console.log(sub(1, 2));
-var result = sub(5, 6);
-console.log(result);
+// // console.log(sub(1, 2));
+// var result = sub(5, 6);
+// console.log(result);
 
 
 
 // explanation of bind with this
-var dob = [1990, 1970, 1985, 1998, 2012, 2010]; // database of indian people date of births
-function arrayCalculate(array, fun) {
-    var result = [];
-    for (var i = 0; i < array.length; i++) {
-        result.push(fun(array[i]));
-    }
-    return result;
-}
+// var dob = [1990, 1970, 1985, 1998, 2012, 2010]; // database of indian people date of births
+// function arrayCalculate(array, fun) {
+//     var result = [];
+//     for (var i = 0; i < array.length; i++) {
+//         result.push(fun(array[i]));
+//     }
+//     return result;
+// }
 
-function calculateAge(dob_year) {
-    return 2020 - dob_year;
-}
+// function calculateAge(dob_year) {
+//     return 2020 - dob_year;
+// }
 
-function isValidAge(limit, age) {
-    return age >= limit;
-}
+// function isValidAge(limit, age) {
+//     return age >= limit;
+// }
 
 // for (var i = 0; i < ages.length; i++) {
 //     console.log(isValidAge(18, ages[i]));
@@ -222,15 +242,15 @@ function isValidAge(limit, age) {
 
 // }
 
-var ages = arrayCalculate(dob, calculateAge); //[30, 50,35,22,8,10]
-console.log(ages);
+// var ages = arrayCalculate(dob, calculateAge); //[30, 50,35,22,8,10]
+// console.log(ages);
 
 // var resultofIndia = arrayCalculate(ages, isValidAge); // problem with parameters
 // console.log(resultofIndia);
 
 
 
-var validAgeIndia = arrayCalculate(ages, isValidAge.bind(null, 18));
+// var validAgeIndia = arrayCalculate(ages, isValidAge.bind(null, 18));
 
 /*
 "this argument" is confusing in bind function. I checked the MDN and my understanding is that "this" will always be the first argument in bind. As you mentioned, we don't use it in isFullAge(), so it doesn't matter. We can put null too to make it more clear.
@@ -242,7 +262,7 @@ The bind() method creates kind of a copy of the original function with a specifi
 
 */
 
-console.log('ages are', validAgeIndia);
+// console.log('ages are', validAgeIndia);
 
 // console.log(validAgeIndia);
 
@@ -313,20 +333,20 @@ console.log('ages are', validAgeIndia);
 // myFunc()
 
 
-var phones = 'redmi'
+// var phones = 'redmi'
 
-const smartPhone = function (Pho) {
+// const smartPhone = function (Pho) {
 
-    const sPhone = (_new) => {
-        console.log(`my smartphone is ${phones} ${_new}`)
-    }
-    var Func = sPhone.bind(this, Pho)
-    Func()
-}
+//     const sPhone = (_new) => {
+//         console.log(`my smartphone is ${phones} ${_new}`)
+//     }
+//     var Func = sPhone.bind(this, Pho)
+//     Func()
+// }
 
-var myFunc = smartPhone.bind(this, 'Purchasing new phone')
+// var myFunc = smartPhone.bind(this, 'Purchasing new phone')
 
-myFunc()
+// myFunc()
 
 
 
