@@ -482,6 +482,7 @@ class and subclasses
 
 // // es5 - example for es5
 
+// calling a method from dom
 // var box5 = {
 //     color: 'green',
 //     position: 1,
@@ -496,8 +497,9 @@ class and subclasses
 
 // });
 
-// // disadvantage of es5
 
+// // accessing obj properties from internal function
+// we cannot access form internal function
 // var box5 = {
 //     color: 'green',
 //     position: 1,
@@ -513,13 +515,14 @@ class and subclasses
 // box5.clickMe();
 
 
-// // es6
+// // es6 - solution - using arrow function
+
 // var box6 = {
 
 
 //     color: 'green',
 //     position: 1,
-//     clickMe: () => {
+//     clickMe: function() {
 //         console.log('outside anonymous function', this.color);
 
 //         document.querySelector('.green').addEventListener('click', () => {
@@ -533,317 +536,31 @@ class and subclasses
 // box6.clickMe();
 
 
-// // es5
-
-// var box6 = {
-
-
-//     color: 'green',
-//     position: 1,
-//     clickMe: function () {
-//         console.log('outside anonymous function', this.color);
-
-//         document.querySelector('.green').addEventListener('click', () => {
-//             console.log(this);
-
-
-//             console.log('this is a ' + this.color + ' box and the position is ' + this.position);
-//         });
-
-//         return this.hello();
-//     },
-
-//     hello: function () {
-//         document.querySelector('.green').addEventListener('click', () => {
-//             console.log(this);
-
-
-//             console.log('this is a ' + this.color + ' box and the position is ' + this.position);
-//         });
-
-//     }
-// }
-// box6.clickMe();
-
-
-
-// // es6
-
-// var box6 = {
-
-
-//     color: 'green',
-//     position: 1,
-
-
-//     clickMe: function () {
-//         // console.log('outside anonymous function', this.color);
-
-//         obj = {
-//             name: 'mohammed',
-//             age: 24,
-//             hello: () => {
-//                 console.log('the this of obj is :', this);
-
-//                 console.log('hello world');
-
-//             },
-
-//             hello2: function () {
-//                 console.log('the this of hello2 is:', this);
-
-//             },
-//         };
-
-
-//         obj2 = {
-//             college: 'Stanford',
-
-//             hello3: () => {
-//                 console.log('the this of hello3', this);
-
-//             }
-
-//         };
-//         obj2.hello3();
-
-//         obj.hello();
-//         obj.hello2();
-
-
-
-
-
-//         document.querySelector('.green').addEventListener('click', function () {
-//             console.log(this);
-
-
-//             console.log('this is a ' + this.color + ' box and the position is ' + this.position);
-//         });
-//     },
-// }
-// box6.clickMe();
-
-
-
-// var box6 = {
-
-
-//     color: 'green',
-//     position: 1,
-//     clickMe: function () {
-//         console.log('outside anonymous function', this.color);
-
-//         document.querySelector('.green').addEventListener('click', () => {
-//             console.log(this);
-
-
-//             console.log('this is a ' + this.color + ' box and the position is ' + this.position);
-//         });
-//     },
-//     obj: {
-//         name6: 'mohammed',
-//         age6: 24,
-//         hello: function () {
-//             document.querySelector('.green').addEventListener('click', () => {
-
-//                 console.log(`hi this is ${this.name6} and I am ${this.age6}`);
-//             });
-
-//         },
-
-
-//     }
-// }
-// box6.clickMe();
-
-// box6.obj.hello();
-
-
-// // two objects seperately
-
-
-// var box6 = {
-
-
-//     color: 'green',
-//     position: 1,
-//     clickMe: function () {
-//         console.log('outside anonymous function', this.color);
-
-//         document.querySelector('.green').addEventListener('click', () => {
-//             console.log(this);
-
-
-//             console.log('this is a ' + this.color + ' box and the position is ' + this.position);
-//         });
-//     },
-
-// }
-
-// var obj = {
-//     name6: 'mohammed',
-//     age6: 24,
-//     hello: () => {
-//         document.querySelector('.green').addEventListener('click', () => {
-
-//             console.log(`hi this is ${this.name6} and I am ${this.age6}`);
-//         });
-
-//     },
-
-
-// }
-// box6.clickMe();
-
-// obj.hello();
-
-
-// // call method
-
-// var steve = {
-//     name: 'steve jobs',
-//     age: 26,
-//     job: 'teacher',
-//     speech: function (typeOfaudience, time) {
-//         if (typeOfaudience === 'kids') {
-//             console.log(`Hi Kids,Good ${time}, I am ${this.name} and I am ${this.age} and a ${this.job}`);
-
-//         }
-
-//         else if (typeOfaudience === 'college') {
-//             console.log(`Good ${time} Gentlemen, I am ${this.name} and I am ${this.age} and a ${this.job}`);
-
+// parent object and then window only
+// let obj1 = {
+//     name : 'rahul',
+//     dob : 1996,
+//     obj2 : {
+//     myname : 'steve',
+//         greet : ()=>{
+//             console.log('external fun',this.myname);
+//             secondFun = ()=>{
+//                 console.log('second function',this.myname);
+//                 thirdFun = ()=>{
+//                     console.log('third function',this);
+//                 };
+//             thirdFun();
+//             };
+           
+//         secondFun();
 //         }
 //     }
-// }
-
-// var bill = {
-//     name: 'bill gates',
-//     age: 30,
-//     job: 'designer',
-// };
-
-// steve.speech('college', 'evening');
-
-// // using call method - adopt the steve speech
-
-// steve.speech.call(bill, 'kids', 'Morning');
-
-
-// // bind method:
-// // similar to call method but the only difference is,
-// // it allows us to copy the function and assign it to a variable
-
-// var speechOfbill = steve.speech.bind(bill, 'kids', 'Morning');
-// speechOfbill();
-
-// var speechOfbill = steve.speech.bind(bill, 'kids');
-// speechOfbill('Evening');
-
-// var speechOfbill = steve.speech.bind(bill);
-// speechOfbill('college', 'Evening');
-
-
-// // find the valid voter age
-
-// var dob = [1990, 1970, 1985, 1998, 2012, 2010]; // database of indian people date of births
-
-// function arrayCalculate(array, fun) {
-//     var result = [];
-//     for (var i = 0; i < array.length; i++) {
-//         result.push(fun(array[i]))
-//     }
-
-//     return result;
-
 
 // }
 
-
-// function calculateAge(dob_year) {
-//     return 2020 - dob_year;
-// }
-
-// function isValidAge(age) {
-//     return age > 18;
-// }
+// obj1.obj2.greet()
 
 
-// var ages = arrayCalculate(dob, calculateAge);
-// console.log(ages);
-
-// var validAge = [];
-// for (var j = 0; j < ages.length; j++) {
-//     validAge.push(isValidAge(ages[j]));
-// }
-
-// console.log('valid ages are:', validAge);
-
-
-// var dob = [1990, 1970, 1985, 1998, 2012, 2010]; // database of indian people date of births
-
-// function arrayCalculate(array, fun) {
-//     var result = [];
-//     for (var i = 0; i < array.length; i++) {
-//         result.push(fun(array[i]))
-//     }
-
-//     return result;
-// }
-
-
-// function calculateAge(dob_year) {
-//     return 2020 - dob_year;
-// }
-
-// function isValidAge(limit, age) {
-//     return age >= limit;
-//     if (age >= limit) {
-//         return 'valid age';
-
-//     }
-//     else {
-//         return 'invalid age';
-
-//     }
-// }
-
-
-// var ages = arrayCalculate(dob, calculateAge);
-// console.log(ages);
-
-// var validAgeIndia = arrayCalculate(ages, isValidAge.bind(this, 18));
-// console.log(ages);
-
-// console.log(validAgeIndia);
-
-// var validAgeJapan = arrayCalculate(ages, isValidAge.bind(this, 24));
-// console.log(validAgeJapan);
-
-
-// // using function constructors
-// // friends list of person
-// // es5
-
-// var friends = ['Mohammed', 'Manish', 'Sandeep', 'Prashanth']
-// function Person(name) {
-//     this.name = name;
-// }
-
-// Person.prototype.myfriend5 = function (friends) {
-//     var arrayFriends = friends.map((element) => {
-//         return `${this.name} is a friend of  ${element};`
-
-//     });
-
-
-//     console.log(arrayFriends);
-
-// }
-
-// p1 = new Person('Darpan');
-// console.log(p1.myfriend5(friends));
 
 
 // // destructuring - seperating an object or array into variables
@@ -901,16 +618,18 @@ class and subclasses
 
 // // array - list of elements
 
+// ES5
 // const boxes = document.querySelectorAll('.box');
-
-// var boxArray = Array.prototype.slice.call(boxes)
+// boxes is not an array its nodelist
+// var boxArray = Array.prototype.slice.call(boxes) // converting nodelist to array
 // console.log(boxes);
-// console.log(boxArray);
+// console.log('box array is',boxArray);
 
-
-// boxArray.forEach(function (cur) {
-//     cur.style.backgroundColor = 'yellow';
-// });
+// foreach
+// var myarray = [1,2,3,4,5]
+// myarray.forEach(function(element){
+//     console.log(element*2);
+// })
 
 // // for loop
 
@@ -918,13 +637,23 @@ class and subclasses
 // //         boxArray[i].style.backgroundColor = 'yellow';
 // //     }
 
+
+
+// boxArray.forEach(function (cur) {
+//     cur.style.backgroundColor = 'yellow';
+// });
+
+
+
 // // complete es6
+
+// const boxArray = Array.from(boxes) 
 
 // boxArray.forEach((cur) => {
 //     cur.style.backgroundColor = 'yellow';
 // });
 
-
+// ES5
 // for (var i = 0; i < boxArray.length; i++) {
 //     if (boxArray[i].className === 'box blue') {
 //         continue;
@@ -940,7 +669,7 @@ class and subclasses
 //     boxArray[i].style.backgroundColor = 'yellow';
 // }
 
-// // for of
+// // for of inES6
 
 // // es6
 
@@ -966,317 +695,32 @@ class and subclasses
 // console.log(a.indexOf(6));
 
 // // two new methods 
-
-// var ages = [17, 21, 8, 14, 22, 11];
+// // // es5
+// var ages = [17, 15, 28, 14, 22, 11];
 // var full = ages.map(function (curage) {
 //     return curage > 18;
 // });
 
-// // // es5
+
 // console.log(ages);
 // console.log(full);
 
-// console.log(full.indexOf(true));
-// console.log(ages[full.indexOf(true)]);
+// console.log(full.indexOf(true)); // it will show the first index number which has true value
+// console.log(ages[full.indexOf(true)]); // first elment value
 
 // // es6
-// var ages = [17, 21, 8, 14, 22, 11];
 
-// // findIndex
+// var ages = [17, 14, 28,21,  22, 11];
+
+// // // findIndex
 // console.log(ages.findIndex((curAge) => {
 //     return curAge >= 18;
 // }));
 
 // console.log(ages.find(curage => curage >= 18));
-
-// // call method
-
-// var steve = {
-//     name: 'steve jobs',
-//     age: 26,
-//     job: 'teacher',
-//     speech: function (typeOfaudience, time) {
-//         if (typeOfaudience === 'kids') {
-//             console.log(`Hi Kids,Good ${time}, I am ${this.name} and I am ${this.age} and a ${this.job}`);
-
-//         }
-
-//         else if (typeOfaudience === 'college') {
-//             console.log(`Good ${time} Gentlemen, I am ${this.name} and I am ${this.age} and a ${this.job}`);
-
-//         }
-//     }
-// }
-
-// var bill = {
-//     name: 'bill gates',
-//     age: 30,
-//     job: 'designer',
-// };
-
-// // steve.speech('college', 'evening');
-
-// // using call method - adopt the steve speech
-
-// steve.speech.call(bill, 'kids', 'Morning');
-
-
-// // bind method:
-// // similar to call method but the only difference is,
-// // it allows us to copy the function and assign it to a variable
-
-// var speechOfbill = steve.speech.bind(bill, 'kids', 'Morning');
-// // speechOfbill();
-
-// var speechOfbill = steve.speech.bind(bill, 'kids');
-// // speechOfbill('Evening');
-
-// var speechOfbill = steve.speech.bind(bill);
-// // speechOfbill('college', 'Evening');
-
-
-// // find the valid voter age
-
-// var dob = [1990, 1970, 1985, 1998, 2012, 2010]; // database of indian people date of births
-
-// function arrayCalculate(array, fun) {
-//     var result = [];
-//     for (var i = 0; i < array.length; i++) {
-//         result.push(fun(array[i]))
-//     }
-
-//     return result;
-
-// }
-
-
-// function calculateAge(dob_year) {
-//     return 2020 - dob_year;
-// }
-
-
-// function isValidAge(age) {
-//     return age > 18;
-// }
-
-
-// var ages = arrayCalculate(dob, calculateAge);
-// console.log(ages);
-
-// var validAge = [];
-// for (var j = 0; j < ages.length; j++) {
-//     validAge.push(isValidAge(ages[j]));
-// }
-
-// console.log('valid ages are:', validAge);
-
-
-// var dob = [1990, 1970, 1985, 1998, 2012, 2010]; // database of indian people date of births
-
-// function arrayCalculate(array, fun) {
-//     var result = [];
-//     for (var i = 0; i < array.length; i++) {
-//         result.push(fun(array[i]))
-//     }
-
-//     return result;
-// }
-
-
-// function calculateAge(dob_year) {
-//     return 2020 - dob_year;
-// }
-
-// function isValidAge(limit, age) {
-//     return age >= limit;
-//     if (age >= limit) {
-//         return 'valid age';
-
-//     }
-//     else {
-//         return 'invalid age';
-
-//     }
-// }
-
-
-// var ages = arrayCalculate(dob, calculateAge);
-// console.log(ages);
-
-// var validAgeIndia = arrayCalculate(ages, isValidAge.bind(this, 18));
-// console.log(ages);
-
-// console.log(validAgeIndia);
-
-// var validAgeJapan = arrayCalculate(ages, isValidAge.bind(this, 24));
-// console.log(validAgeJapan);
-
-
-// // using function constructors
-// // friends list of person
-// // es5
-
-// var friends = ['Mohammed', 'Manish', 'Sandeep', 'Prashanth']
-// function Person(name) {
-//     this.name = name;
-// }
-
-// Person.prototype.myfriend5 = function (friends) {
-//     var arrayFriends = friends.map((element) => {
-//         return `${this.name} is a friend of  ${element};`
-
-//     });
-
-
-//     console.log(arrayFriends);
-
-// }
-
-// p1 = new Person('Darpan');
-// console.log(p1.myfriend5(friends));
-
 
 // // destructuring - seperating an object or array into variables
 
-// // es5
-
-// var person1 = ['Prashanth', 22];
-// var name5 = person1[0];
-// var age5 = person1[1];
-// console.log(`name is ${name5} and age is ${age5}`);
-
-
-// var [name, year] = ['Prashanth', 22];
-// console.log(`name is ${name} and age is ${year}`);
-
-// var [name, year] = ['Sandeep', 22];
-// console.log(`name is ${name} and age is ${year}`);
-
-
-// // es6
-
-// let [name, year] = ['Prashanth', 22];
-// console.log(`name is ${name} and age is ${year}`);
-
-// let [name, year] = ['Prashanth', 22];
-// console.log(`name is ${name} and age is ${year}`);
-
-
-// const obj = {
-//     firstName: 'Darpan',
-//     lastName: 'Singh'
-// };
-
-
-
-// console.log('last name is ', obj.lastName);
-
-// const { firstName, lastName } = obj;
-// console.log(lastName);
-
-// const { firstName: first, lastName: last } = obj;
-// console.log(first + last);
-
-
-// function calculateAgeRetirement(dob) {
-//     const age = 2020 - dob;
-//     return [age, 65 - age];
-// }
-
-// const [age, retirementTime] = calculateAgeRetirement(2000);
-// console.log(age);
-// console.log(retirementTime);
-
-
-// // array - list of elements
-
-// const boxes = document.querySelectorAll('.box');
-
-// var boxArray = Array.prototype.slice.call(boxes)
-// console.log(boxes);
-// console.log(boxArray);
-
-
-// boxArray.forEach(function (cur) {
-//     cur.style.backgroundColor = 'yellow';
-// });
-
-// // for loop
-
-// for (var i = 0; i < boxArray.length; i++) {
-//     boxArray[i].style.backgroundColor = 'yellow';
-// }
-
-// // complete es6
-
-// boxArray.forEach((cur) => {
-//     cur.style.backgroundColor = 'yellow';
-// });
-
-
-// for (var i = 0; i < boxArray.length; i++) {
-//     if (boxArray[i].className === 'box blue') {
-//         continue;
-//     }
-//     boxArray[i].style.backgroundColor = 'yellow';
-// }
-
-
-// for (var i = 0; i < boxArray.length; i++) {
-//     if (boxArray[i].className === 'box blue') {
-//         break;
-//     }
-//     boxArray[i].style.backgroundColor = 'yellow';
-// }
-
-// // for of
-
-// // es6
-
-// for (const curbox of boxArray) {
-//     if (curbox.className === 'box blue') {
-//         continue;
-//     }
-//     curbox.style.backgroundColor = 'yellow';
-// }
-
-
-// for (const curbox of boxArray) {
-//     if (curbox.className === 'box blue') {
-//         break;
-//     }
-//     curbox.style.backgroundColor = 'yellow';
-// }
-
-
-// // indexOf alternatives in es6
-
-// a = [1, 2, 4, 5, 6];
-// console.log(a.indexOf(6));
-
-// // // two new methods 
-
-// var ages = [17, 21, 8, 14, 22, 11];
-// var full = ages.map(function (curage) {
-//     return curage > 18;
-// });
-
-// // // es5
-// console.log(ages);
-// console.log(full);
-
-// console.log(full.indexOf(true));
-// console.log(ages[full.indexOf(true)]);
-
-// // es6
-// var ages = [17, 21, 8, 14, 22, 11];
-
-// // findIndex
-// console.log(ages.findIndex((curAge) => {
-//     return curAge >= 18;
-// }));
-
-// console.log(ages.find(curage => curage >= 18));
 
 
 // // spread operators
@@ -1313,7 +757,7 @@ class and subclasses
 
 // const familyOfDarpan = ['singh', 'Sandeep', 'prashanth'];
 
-// // // after two years
+// // // // after two years
 // const bigFamily = [...familyOfMuntaj, 'Ahmed', 'Manish', ...familyOfDarpan]
 // console.log(bigFamily);
 
